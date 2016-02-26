@@ -62,7 +62,7 @@ class Kleaner(pd.DataFrame):
         """
         return {
             c: self.get_col_health(c)
-            for c in df.columns
+            for c in self.columns
         }
 
     def get_col_health(self, c):
@@ -103,12 +103,12 @@ class Kleaner(pd.DataFrame):
             return self.OBJECT_FLAG_TYPE
         return None
 
-    def normalize_cols(self, cs=None, postfix='_normalized'):
+    def normalize_cols(self, cs=None, postfix='_normalized', method=None):
         if cs is None:
             cs = [c for c in self.columns if self.guess_type_col(
                 c) == self.BINARY_FLAG]
         for c in cs:
-            self[c + postfix] = self.normalize_col(c)
+            self[c + postfix] = self.normalize_col(c, method=method)
         return self
 
     def normalize_col(self, c, method=None):
