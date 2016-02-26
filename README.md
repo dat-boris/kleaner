@@ -1,8 +1,12 @@
 ## Kleaner
 
-
 A set of simple utilities for cleaning up data frame.
 
+## Install with pip
+
+```
+sudo pip install git+git://github.com/sketchytechky/kleaner.git
+```
 
 ## Getting started
 
